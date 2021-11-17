@@ -1,6 +1,3 @@
-provider "google" {
- access_token = var.access_token
-}
 
 resource "google_storage_bucket" "rockstar" {
   name          = "rockstar-bucket"
