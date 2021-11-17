@@ -8,7 +8,6 @@ resource "google_dataproc_cluster" "simplecluster" {
       internal_ip_only = true
 
       # One of the below to hook into a custom network / subnetwork
-      network    = "default"
       subnetwork = "default"
     }
   }
