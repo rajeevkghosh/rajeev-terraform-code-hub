@@ -39,9 +39,13 @@ resource "google_dataproc_cluster" "mycluster" {
       # One of the below to hook into a custom network / subnetwork
       subnetwork = "default"
     }
+
+  }
+  cluster_config {
     endpoint_config {
       enable_http_port_access = "true"
     }
+
   }
 }
 
