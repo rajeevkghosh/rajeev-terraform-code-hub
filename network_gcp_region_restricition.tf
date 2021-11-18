@@ -30,17 +30,7 @@ resource "google_dataproc_cluster" "mycluster" {
     env = "dev"
     foo = "bar"
   }
-
-  cluster_config {
-    gce_cluster_config {
-      zone             = "us-central1-a"
-      internal_ip_only = true
-
-      # One of the below to hook into a custom network / subnetwork
-      subnetwork = "default"
-    }
-
-  }
+  
   cluster_config {
     endpoint_config {
       enable_http_port_access = "true"
