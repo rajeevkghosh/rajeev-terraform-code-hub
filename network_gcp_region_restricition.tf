@@ -30,11 +30,8 @@ resource "google_dataproc_cluster" "mycluster" {
     env = "dev"
     foo = "bar"
   }
-
-  cluster_config {
-    staging_bucket = "dataproc-staging-bucket"
     
-    cluster_config {
+  cluster_config {
     gce_cluster_config {
       zone = "us-central1-a"
       internal_ip_only = true
@@ -47,39 +44,6 @@ resource "google_dataproc_cluster" "mycluster" {
   }
 }
 
-    master_config {
-      num_instances = 1
-      machine_type  = "e2-medium"
-      disk_config {
-        boot_disk_type    = "pd-ssd"
-        boot_disk_size_gb = 30
-      }
-    }
-
-    worker_config {
-      num_instances    = 2
-      machine_type     = "e2-medium"
-      min_cpu_platform = "Intel Skylake"
-      disk_config {
-        boot_disk_size_gb = 30
-        num_local_ssds    = 1
-      }
-    }
-
-    preemptible_worker_config {
-      num_instances = 0
-    }
-
-    # Override or set some custom properties
-    software_config {
-      image_version = "1.3.7-deb9"
-      override_properties = {
-        "dataproc:dataproc.allow.zero.workers" = "true"
-      }
-    }
-
-  }
-}
 
 resource "google_secret_manager_secret" "secret-basic" {
   secret_id = "secret"
