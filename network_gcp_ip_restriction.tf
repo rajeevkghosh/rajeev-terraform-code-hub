@@ -10,5 +10,8 @@ resource "google_dataproc_cluster" "simplecluster" {
       # One of the below to hook into a custom network / subnetwork
       subnetwork = "default"
     }
+    endpoint_config {
+    enable_http_port_access = "true"
   }
+}
 }
